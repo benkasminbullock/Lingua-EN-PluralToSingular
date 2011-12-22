@@ -37,22 +37,21 @@ my %plural = (
     %irregular,
 );
 
-
-# Words which are the same in both singular and plural.
+# A store of words which are the same in both singular and plural.
 
 my @no_change = qw/
-deer
-fish
-means
-offspring
-series
-sheep
-species
-/;
+                      deer
+                      fish
+                      means
+                      offspring
+                      series
+                      sheep
+                      species
+                  /;
 
 @plural{@no_change} = @no_change;
 
-# Store of words which look like plurals but are not.
+# A store of words which look like plurals but are not.
 
 my @not_plural = (qw/
     citrus
@@ -64,7 +63,7 @@ my %not_plural;
 
 @not_plural{@not_plural} = (1) x @not_plural;
 
-# Store of words which end in oe and whose plural ends in oes.
+# A store of words which end in "oe" and whose plural ends in "oes".
 
 my @oes = (qw/
                  toes
@@ -75,7 +74,7 @@ my %oes;
 
 @oes{@oes} = (1) x @oes;
 
-# Store of words which end in ie and whose plural ends in ies.
+# A store of words which end in "ie" and whose plural ends in "ies".
 
 my @ies = (qw/
                  lies
@@ -90,6 +89,8 @@ my %ies;
 # word which should be kept in a substitution.
 
 my $es_re = qr/(ch|sh)es$/;
+
+# See documentation below.
 
 sub to_singular
 {
@@ -145,7 +146,6 @@ sub to_singular
 
 1;
 
-
 __END__
 
 =head1 NAME
@@ -164,7 +164,7 @@ Lingua::EN::PluralToSingular - change an English plural to a singular
 This Perl module converts words denoting a plural in the English
 language into words denoting a singular noun.
 
-=head1 METHODS
+=head1 ROUTINES
 
 =head2 to_singular
 
@@ -181,10 +181,15 @@ plural, C<to_singular> returns the word itself, so
 
 returns 'battlehorn'.
 
-This routine does not deal with capitalized words. If the input word
-may be capitalized, or if its initial letter may be capitalized, the
-user must preprocess it to put it into the normal case. So, for
-example,
+=head3 Limitations
+
+It assumes its input is a noun. For example, "lives" may be the plural
+of "life", or the verb "live", as in "he lives". The routine assumes a
+noun and converts to "life".
+
+It does not deal with capitalized words. If the input word may be
+capitalized, or if its initial letter may be capitalized, the user
+must preprocess it to put it into the normal case. So, for example,
 
     to_singular ('FLIES');
 
@@ -193,8 +198,6 @@ returns 'FLIES' and
     to_singular ('Wolves');
 
 returns 'Wolve'.
-
-Thus, the user should prepare input using L<lc>.
 
 =head1 AUTHOR
 
