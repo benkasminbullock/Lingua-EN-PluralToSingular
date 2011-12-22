@@ -24,6 +24,7 @@ my %irregular = (
 my %ves = (
     'wolves' => 'wolf',
     'knives' => 'knife',
+    'lives' => 'life',
 );
 
 # A dictionary of plurals.
@@ -66,8 +67,8 @@ my %not_plural;
 # Store of words which end in oe and whose plural ends in oes.
 
 my @oes = (qw/
-                 toe
-                 hoe
+                 toes
+                 hoes
              /);
 
 my %oes;
@@ -77,7 +78,7 @@ my %oes;
 # Store of words which end in ie and whose plural ends in ies.
 
 my @ies = (qw/
-                 lie
+                 lies
              /);
 
 my %ies;
@@ -106,7 +107,7 @@ sub to_singular
             # The word ends in "s".
             if ($word =~ /ies$/) {
                 # The word ends in "ies".
-                if ($ies{"${word}s"}) {
+                if ($ies{$word}) {
                     # Lies -> lie
                     $singular =~ s/ies$/ie/;
                 }
@@ -117,7 +118,7 @@ sub to_singular
             }
             elsif ($word =~ /oes/) {
                 # The word ends in "oes".
-                if ($oes{"${word}s"}) {
+                if ($oes{$word}) {
                     # Toes -> toe
                     $singular =~ s/oes$/oe/;
                 }
@@ -179,6 +180,21 @@ plural, C<to_singular> returns the word itself, so
     to_singular ('battlehorn');
 
 returns 'battlehorn'.
+
+This routine does not deal with capitalized words. If the input word
+may be capitalized, or if its initial letter may be capitalized, the
+user must preprocess it to put it into the normal case. So, for
+example,
+
+    to_singular ('FLIES');
+
+returns 'FLIES' and
+
+    to_singular ('Wolves');
+
+returns 'Wolve'.
+
+Thus, the user should prepare input using L<lc>.
 
 =head1 AUTHOR
 
