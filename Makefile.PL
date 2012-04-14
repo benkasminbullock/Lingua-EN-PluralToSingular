@@ -12,4 +12,7 @@ WriteMakefile (
     LICENSE => 'perl',
     PREREQ_PM => {
     },
+    EXE_FILES => [
+        'scripts/singular',
+    ],
 );

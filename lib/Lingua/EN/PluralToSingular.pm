@@ -57,6 +57,7 @@ my @not_plural = (qw/
     citrus
     Charles
     bogus
+    octopus
 /);
 
 my %not_plural;
