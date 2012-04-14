@@ -1,5 +1,3 @@
-use strict;
-use warnings;
 use ExtUtils::MakeMaker;
 
 my $pm = 'lib/Lingua/EN/PluralToSingular.pm';
@@ -15,4 +13,9 @@ WriteMakefile (
     EXE_FILES => [
         'scripts/singular',
     ],
+    META_MERGE => {
+        repository => 'https://github.com/benkasminbullock/Lingua-EN-PluralToSingular',
+        bugtracker => 'https://github.com/benkasminbullock/Lingua-EN-PluralToSingular/issues',
+        homepage => 'http://prepan.org/module/3Yz7PYrBN8',
+    },
 );
