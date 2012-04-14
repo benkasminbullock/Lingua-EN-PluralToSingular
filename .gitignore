@@ -1,1 +1,4 @@
+# Made from Makefile.PL.
 Makefile
+# Distribution files.
+*.tar.gz
