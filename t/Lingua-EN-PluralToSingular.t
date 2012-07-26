@@ -1,6 +1,6 @@
 use warnings;
 use strict;
-use Test::More tests => 17;
+use Test::More;
 BEGIN { use_ok('Lingua::EN::PluralToSingular', 'to_singular') };
 
 my %words = qw/ 
@@ -21,12 +21,27 @@ wolves wolf
 knives knife
 lives life
 geese goose
+dishes dish
+misses miss
 /; 
 
 for my $word (sort keys %words) { 
     my $s = to_singular ($word); 
-    ok ($s eq $words{$word}, "$s == $words{$word}"); 
+    is ($s, $words{$word}, "$s == $words{$word}"); 
 } 
+
+my %bugs = (qw/
+/);
+
+TODO: {
+    local $TODO = 'bugs';
+    for my $word (sort keys %bugs) { 
+        my $s = to_singular ($word); 
+        is ($s, $bugs{$word}, "$s == $bugs{$word}"); 
+    } 
+};
+
+done_testing ();
 
 # Local variables:
 # mode: perl

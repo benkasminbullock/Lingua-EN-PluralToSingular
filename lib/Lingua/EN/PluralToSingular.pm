@@ -89,7 +89,7 @@ my %ies;
 # and "sandwiches". $1 is a capture which contains the part of the
 # word which should be kept in a substitution.
 
-my $es_re = qr/(ch|sh)es$/;
+my $es_re = qr/([^aeiou]s|ch|sh)es$/;
 
 # See documentation below.
 
