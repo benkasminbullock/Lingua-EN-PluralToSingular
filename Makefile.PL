@@ -1,12 +1,13 @@
 use ExtUtils::MakeMaker;
 
 my $pm = 'lib/Lingua/EN/PluralToSingular.pm';
+my $pod = 'lib/Lingua/EN/PluralToSingular.pod';
 my $repo = 'https://github.com/benkasminbullock/Lingua-EN-PluralToSingular';
 
 WriteMakefile (
     NAME => 'Lingua::EN::PluralToSingular',
     VERSION_FROM => $pm,
-    ABSTRACT_FROM => $pm,
+    ABSTRACT_FROM => $pod,
     AUTHOR => 'Ben Bullock <bkb@cpan.org>',
     LICENSE => 'perl',
     PREREQ_PM => {
