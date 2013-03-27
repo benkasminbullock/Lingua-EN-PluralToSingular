@@ -23,6 +23,7 @@ lives life
 geese goose
 dishes dish
 misses miss
+report's report's
 /; 
 
 for my $word (sort keys %words) { 

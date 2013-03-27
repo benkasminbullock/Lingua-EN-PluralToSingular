@@ -107,7 +107,10 @@ sub to_singular
         }
         elsif ($word =~ /s$/) {
             # The word ends in "s".
-            if ($word =~ /ies$/) {
+	    if ($word =~ /'s$/) {
+		;
+	    }
+            elsif ($word =~ /ies$/) {
                 # The word ends in "ies".
                 if ($ies{$word}) {
                     # Lies -> lie
