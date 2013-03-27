@@ -33,6 +33,7 @@ my %plural = (
     # Words ending in "us" which are plural, in contrast to words like
     # "citrus" or "bogus".
     'menus' => 'menu',
+    'buses' => 'bus',
     %ves,
     %irregular,
 );
@@ -58,6 +59,9 @@ my @not_plural = (qw/
     Charles
     bogus
     octopus
+    this
+    Texas
+    bus
 /);
 
 my %not_plural;
@@ -108,6 +112,11 @@ sub to_singular
         elsif ($word =~ /s$/) {
             # The word ends in "s".
 	    if ($word =~ /'s$/) {
+		# report's, etc.
+		;
+	    }
+	    elsif ($word =~ /ss$/) {
+		# useless, etc.
 		;
 	    }
             elsif ($word =~ /ies$/) {
