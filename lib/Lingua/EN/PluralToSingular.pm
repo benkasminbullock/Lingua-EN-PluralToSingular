@@ -4,7 +4,7 @@ require Exporter;
 @EXPORT_OK = qw/to_singular/;
 use warnings;
 use strict;
-our $VERSION = 0.06;
+our $VERSION = 0.07;
 
 # Irregular plurals.
 
@@ -113,6 +113,10 @@ sub to_singular
             # The word ends in "s".
 	    if ($word =~ /'s$/) {
 		# report's, etc.
+		;
+	    }
+	    elsif (length ($word) <= 2) {
+		# is, as, letter s, etc.
 		;
 	    }
 	    elsif ($word =~ /ss$/) {

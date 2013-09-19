@@ -24,12 +24,22 @@ geese goose
 dishes dish
 misses miss
 report's report's
+bus bus
+buses bus
+Texas Texas
 /; 
 
 for my $word (sort keys %words) { 
     my $s = to_singular ($word); 
     is ($s, $words{$word}, "$s == $words{$word}"); 
 } 
+
+my $s = 's';
+my $sout = to_singular ($s);
+is ($s, $sout, "Don't truncate the single letter 's'");
+my $is = 'is';
+my $isout = to_singular ($is);
+is ($is, $isout, "Don't truncate two letter words ending in 's'");
 
 my %bugs = (qw/
 /);
