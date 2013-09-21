@@ -221,10 +221,6 @@ sub to_singular
 		# basis, dialysis etc.
 		;
 	    }
-	    elsif ($word =~ /us$/) {
-		# basis, dialysis etc.
-		;
-	    }
             elsif ($word =~ /ies$/) {
                 # The word ends in "ies".
                 if ($ies{$word}) {
