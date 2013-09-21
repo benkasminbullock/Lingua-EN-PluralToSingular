@@ -8,24 +8,68 @@ our $VERSION = 0.07;
 
 # Irregular plurals.
 
-my %irregular = (
-    'women' => 'woman',
-    'mice' => 'mouse',
-    'men' => 'man',
-    'children' => 'child',
-    'geese' => 'goose',
-    'feet' => 'foot',
-    'teeth' => 'tooth',
-    'lice' => 'louse',
-);
+# References:
+# http://www.macmillandictionary.com/thesaurus-category/british/Irregular-plurals
+# http://web2.uvcs.uvic.ca/elc/studyzone/330/grammar/irrplu.htm
+# http://www.scribd.com/doc/3271143/List-of-100-Irregular-Plural-Nouns-in-English
+
+# This mixes latin/greek plurals and anglo-saxon together. It may be
+# desirable to split things like corpora and genera from "feet" and
+# "geese" at some point.
+
+my %irregular = (qw/
+    analyses analysis
+    children child
+    corpora corpus
+    crises crisis
+    criteria criterion
+    curricula curriculum
+    feet foot
+    fungi fungus
+    geese goose
+    genera genus
+    indices index
+    lice louse
+    matrices matrix
+    memoranda memorandum
+    men man
+    mice mouse
+    neuroses neurosis
+    nuclei nucleus
+    oases oasis
+    pence penny
+    phenomena phenomenon
+    quanta quantum
+    strata stratum
+    teeth tooth
+    testes testis
+    these this
+    theses thesis
+    those that
+    women woman
+/);
 
 # Words ending in ves need care, since the ves may become "f" or "fe".
 
-my %ves = (
-    'wolves' => 'wolf',
-    'knives' => 'knife',
-    'lives' => 'life',
-);
+# References:
+# http://www.macmillandictionary.com/thesaurus-category/british/Irregular-plurals
+
+my %ves = (qw/
+    calves calf
+    dwarf dwarves
+    elves elf
+    halves half
+    knives knife
+    leaves leaf
+    lives life
+    loaves loaf
+    scarves scarf
+    sheaves sheaf
+    shelves shelf
+    wharf wharves
+    wives wife
+    wolves wolf
+/);
 
 # A dictionary of plurals.
 
@@ -54,14 +98,46 @@ my @no_change = qw/
 
 # A store of words which look like plurals but are not.
 
+# References:
+
+# http://wiki.answers.com/Q/What_are_some_examples_of_singular_nouns_ending_in_S
+# http://virtuallinguist.typepad.com/the_virtual_linguist/2009/10/singular-nouns-ending-in-s.html
+
 my @not_plural = (qw/
-    citrus
     Charles
-    bogus
-    octopus
-    this
     Texas
+
+    dias
+    iris
+    molasses
+    this
+    yes
+    chaos
+    lens
+    corps
+    mews
+    news
+
+    athletics
+    mathematics
+    physics
+    metaphysics
+
+
+    bogus
     bus
+    cactus
+    citrus
+    corpus
+    hippopotamus
+    homunculus
+    narcissus
+    octopus
+    papyrus
+    platypus
+    plus
+    pus
+    stylus
 /);
 
 my %not_plural;
@@ -70,9 +146,16 @@ my %not_plural;
 
 # A store of words which end in "oe" and whose plural ends in "oes".
 
+# References
+# http://www.scrabblefinder.com/ends-with/oe/
+
 my @oes = (qw/
-                 toes
+		 foes
+		 shoes
                  hoes
+		 throes
+                 toes
+		 oboes
              /);
 
 my %oes;
@@ -81,9 +164,20 @@ my %oes;
 
 # A store of words which end in "ie" and whose plural ends in "ies".
 
+# References:
+# http://www.scrabblefinder.com/ends-with/ie/
+# (most of the words are invalid, the above list was manually searched
+# for useful words).
+
 my @ies = (qw/
-                 lies
-             /);
+calories
+genies
+lies
+movies
+neckties
+pies
+ties
+/);
 
 my %ies;
 
@@ -121,6 +215,14 @@ sub to_singular
 	    }
 	    elsif ($word =~ /ss$/) {
 		# useless, etc.
+		;
+	    }
+	    elsif ($word =~ /sis$/) {
+		# basis, dialysis etc.
+		;
+	    }
+	    elsif ($word =~ /us$/) {
+		# basis, dialysis etc.
 		;
 	    }
             elsif ($word =~ /ies$/) {
