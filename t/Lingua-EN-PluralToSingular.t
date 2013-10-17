@@ -27,6 +27,8 @@ report's report's
 bus bus
 buses bus
 Texas Texas
+boxes box
+prefixes prefix
 /; 
 
 for my $word (sort keys %words) { 

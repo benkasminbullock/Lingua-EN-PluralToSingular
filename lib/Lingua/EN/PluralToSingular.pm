@@ -66,7 +66,7 @@ my %ves = (qw/
     scarves scarf
     sheaves sheaf
     shelves shelf
-    wharf wharves
+    wharves wharf 
     wives wife
     wolves wolf
 /);
@@ -242,6 +242,10 @@ sub to_singular
                     # Potatoes -> potato
                     $singular =~ s/oes$/o/;
                 }
+            }
+            elsif ($word =~ /xes/) {
+                # The word ends in "xes".
+		$singular =~ s/xes$/x/;
             }
             elsif ($word =~ $es_re) {
                 # Sandwiches -> sandwich

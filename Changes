@@ -1,0 +1,40 @@
+Revision history for perl module Lingua::EN::PluralToSingular
+
+0.09 2013-10-17
+
+* "Boxes", "prefixes" now corrected.
+
+0.08 2013-09-20
+
+* Expand list of words ending in "s" which are not plural (@not_plural)
+* Expand list of "oes" words which have singulars ending in "oe" (@oes).
+* Expand list of "ies" words which have singulars ending in "ie" (@ies).
+* Expand list of "ves" words
+
+0.07 2013-09-19
+
+* Ignore words of one or two letters ("as", "is", etc.)
+
+0.06 2013-03-26
+
+* More irregular plurals and words ending in "s" which are not plural.
+
+0.05 2013-03-26
+
+* Documentation to separate file
+* Ignore apostrophe-s
+
+0.04 2012-07-25
+
+* consonant+s + es forms
+
+0.03 2012-04-13
+
+* No user-visible changes
+
+0.02 2012-04-13
+
+* No user-visible changes
+
+0.01 2012-04-13
+
