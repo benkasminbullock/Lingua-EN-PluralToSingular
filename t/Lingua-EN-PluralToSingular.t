@@ -29,6 +29,8 @@ buses bus
 Texas Texas
 boxes box
 prefixes prefix
+various various
+previous previous
 /; 
 
 for my $word (sort keys %words) { 

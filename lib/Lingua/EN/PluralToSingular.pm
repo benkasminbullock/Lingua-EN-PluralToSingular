@@ -4,7 +4,7 @@ require Exporter;
 @EXPORT_OK = qw/to_singular/;
 use warnings;
 use strict;
-our $VERSION = 0.09;
+our $VERSION = '0.10';
 
 # Irregular plurals.
 
@@ -131,6 +131,7 @@ my @not_plural = (qw/
     corpus
     hippopotamus
     homunculus
+    minus
     narcissus
     octopus
     papyrus
@@ -138,6 +139,11 @@ my @not_plural = (qw/
     plus
     pus
     stylus
+    various
+    previous
+    devious
+    metropolis
+    miscellaneous
 /);
 
 my %not_plural;
