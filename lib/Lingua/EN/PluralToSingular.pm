@@ -144,6 +144,7 @@ my @not_plural = (qw/
     devious
     metropolis
     miscellaneous
+    perhaps
 /);
 
 my %not_plural;
@@ -238,7 +239,7 @@ sub to_singular
                     $singular =~ s/ies$/y/;
                 }
             }
-            elsif ($word =~ /oes/) {
+            elsif ($word =~ /oes$/) {
                 # The word ends in "oes".
                 if ($oes{$word}) {
                     # Toes -> toe
@@ -249,7 +250,7 @@ sub to_singular
                     $singular =~ s/oes$/o/;
                 }
             }
-            elsif ($word =~ /xes/) {
+            elsif ($word =~ /xes$/) {
                 # The word ends in "xes".
 		$singular =~ s/xes$/x/;
             }

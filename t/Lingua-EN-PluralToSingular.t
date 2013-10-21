@@ -46,6 +46,7 @@ my $isout = to_singular ($is);
 is ($is, $isout, "Don't truncate two letter words ending in 's'");
 
 my %bugs = (qw/
+tenses tense
 /);
 
 TODO: {
