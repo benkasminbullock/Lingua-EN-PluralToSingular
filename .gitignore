@@ -2,3 +2,5 @@
 Makefile
 # Distribution files.
 *.tar.gz
+# Auto-made
+README

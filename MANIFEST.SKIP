@@ -1,0 +1,8 @@
+^build\.pl$
+^Makefile$
+^\.git.*$
+^blib/.*
+^MYMETA\..*
+^pm_to_blib$
+^Lingua-EN-PluralToSingular-[0-9\.]+.*$
+.*\.pod\.tmpl$
