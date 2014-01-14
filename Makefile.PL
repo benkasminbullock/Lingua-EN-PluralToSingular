@@ -22,4 +22,6 @@ WriteMakefile (
             homepage => 'http://prepan.org/module/3Yz7PYrBN8',
         }
     },
+    # Passes 5.6.2 at CPANTESTERS as of version 0.10.
+    MIN_PERL_VERSION => '5.006001',
 );
