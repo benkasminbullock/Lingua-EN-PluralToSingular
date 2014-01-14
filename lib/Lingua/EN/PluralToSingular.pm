@@ -35,6 +35,7 @@ my %irregular = (qw/
     craftsmen craftsman
     men man
     mice mouse
+    monies money
     neuroses neurosis
     nuclei nucleus
     oases oasis
@@ -86,7 +87,9 @@ my %plural = (
 # A store of words which are the same in both singular and plural.
 
 my @no_change = qw/
+                      clothes
                       deer
+                      ides
                       fish
                       means
                       offspring
