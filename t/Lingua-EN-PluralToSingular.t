@@ -31,6 +31,10 @@ boxes box
 prefixes prefix
 various various
 previous previous
+tenses tense
+horses horse
+dresses dress
+horse horse
 /; 
 
 for my $word (sort keys %words) { 
@@ -46,7 +50,6 @@ my $isout = to_singular ($is);
 is ($is, $isout, "Don't truncate two letter words ending in 's'");
 
 my %bugs = (qw/
-tenses tense
 /);
 
 TODO: {
