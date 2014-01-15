@@ -151,6 +151,7 @@ my @not_plural = (qw/
     perhaps
     thus
     famous
+    mrs
 /);
 
 my %not_plural;
