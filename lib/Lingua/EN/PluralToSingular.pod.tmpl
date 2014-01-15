@@ -11,10 +11,12 @@ Lingua::EN::PluralToSingular - change an English plural to a singular
 
 =head1 DESCRIPTION
 
-This Perl module converts words denoting a plural in the English
-language into words denoting a singular noun.
+This converts words denoting a plural in the English language into
+words denoting a singular noun.
 
-=head1 ROUTINES
+=head1 FUNCTIONS
+
+There is only one function.
 
 =head2 to_singular
 
@@ -33,7 +35,7 @@ returns 'battlehorn'.
 
 =head1 LIMITATIONS
 
-=head2 Assumes noun
+=head2 Assumes the input is a noun
 
 L</to_singular> assumes its input is a noun. For example, "lives" may
 be the plural of "life", or the verb "live", as in "he lives". The
@@ -51,7 +53,16 @@ returns 'FLIES' and
 
     to_singular ('Wolves');
 
-returns 'Wolve'.
+returns 'Wolve'. Similarly,
+
+    to_singular ('Charles');
+
+returns 'Charles', but 
+
+    to_singular ('charles');
+
+returns 'charle', since the exception only applies if the word is
+capitalized.
 
 =head2 Does not handle pronouns
 
@@ -68,7 +79,11 @@ versions of nouns:
 
 =head1 BUGS
 
-This module is in early development, and there are many exceptions
-which are not included yet.
+This module is in development, and there are many exceptions which are
+not included yet.
+
+=head1 ACKNOWLEDGEMENTS
+
+Thanks to Xan Charbonnet and H2CHANG for various additions and fixes.
 
 [% INCLUDE "author" %]

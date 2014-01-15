@@ -1,6 +1,7 @@
 use warnings;
 use strict;
 use Test::More;
+
 BEGIN { use_ok('Lingua::EN::PluralToSingular', 'to_singular') };
 
 my %words = qw/ 
