@@ -35,6 +35,7 @@ tenses tense
 horses horse
 dresses dress
 horse horse
+dwarves dwarf
 /; 
 
 for my $word (sort keys %words) { 
