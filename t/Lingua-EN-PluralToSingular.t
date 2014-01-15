@@ -37,6 +37,9 @@ dresses dress
 horse horse
 dwarves dwarf
 mrs mrs
+canvases  canvas
+geniuses  genius
+viruses  virus
 /; 
 
 for my $word (sort keys %words) { 
