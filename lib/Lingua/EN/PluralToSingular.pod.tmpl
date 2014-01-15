@@ -31,11 +31,15 @@ plural, C<to_singular> returns the word itself, so
 
 returns 'battlehorn'.
 
-=head3 Limitations
+=head1 LIMITATIONS
 
-It assumes its input is a noun. For example, "lives" may be the plural
-of "life", or the verb "live", as in "he lives". The routine assumes a
-noun and converts to "life".
+=head2 Assumes noun
+
+L</to_singular> assumes its input is a noun. For example, "lives" may
+be the plural of "life", or the verb "live", as in "he lives". The
+routine assumes a noun and converts to "life".
+
+=head2 Distinguishes lower and upper case
 
 It does not deal with capitalized words. If the input word may be
 capitalized, or if its initial letter may be capitalized, the user
@@ -48,6 +52,11 @@ returns 'FLIES' and
     to_singular ('Wolves');
 
 returns 'Wolve'.
+
+=head2 Does not handle pronouns
+
+The module does not attempt to handle pronoun forms like "ourselves"
+or "themselves". These words are left unaltered.
 
 =head1 STANDALONE SCRIPT
 

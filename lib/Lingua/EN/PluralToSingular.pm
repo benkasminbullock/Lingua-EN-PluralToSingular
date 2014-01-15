@@ -166,6 +166,11 @@ Raines
     thus
     famous
     mrs
+sometimes
+
+ourselves
+themselves
+
 /);
 
 my %not_plural;
