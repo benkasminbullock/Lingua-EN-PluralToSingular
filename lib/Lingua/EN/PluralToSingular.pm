@@ -57,7 +57,7 @@ my %irregular = (qw/
 
 my %ves = (qw/
     calves calf
-    dwarf dwarves
+    dwarves dwarf
     elves elf
     halves half
     knives knife
