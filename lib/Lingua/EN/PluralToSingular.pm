@@ -110,6 +110,20 @@ my @no_change = qw/
 my @not_plural = (qw/
     Charles
     Texas
+Hades 
+Hercules 
+Hermes 
+Gonzales 
+Holmes 
+Hughes 
+Ives 
+Jacques 
+James 
+Keyes 
+Mercedes 
+Naples 
+Oates 
+Raines 
 
     dias
     iris
