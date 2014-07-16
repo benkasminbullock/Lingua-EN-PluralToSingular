@@ -9,14 +9,24 @@ Lingua::EN::PluralToSingular - change an English plural to a singular
     print to_singular ('knives');
     # "knife"
 
+    use Lingua::EN::PluralToSingular 'is_plural';
+
+    # Returns 1
+    is_plural ('sheep');
+    # Returns 0
+    is_plural ('dog');
+    # Returns 1
+    is_plural ('dogs');
+    # Returns 0
+    is_plural ('cannabis');
+    
+
 =head1 DESCRIPTION
 
 This converts words denoting a plural in the English language into
 words denoting a singular noun.
 
 =head1 FUNCTIONS
-
-There is only one function.
 
 =head2 to_singular
 
@@ -32,6 +42,18 @@ plural, C<to_singular> returns the word itself, so
     to_singular ('battlehorn');
 
 returns 'battlehorn'.
+
+=head2 is_plural
+
+    if (is_plural ($word)) {
+        print "There are too many $word here.\n";
+    }
+    else {
+        print "There is a $word here.\n";
+    }
+
+Returns 1 if the word is a valid plural, 0 if not. It also returns 1
+for ambiguous words like "sheep".
 
 =head1 LIMITATIONS
 
