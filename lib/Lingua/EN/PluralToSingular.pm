@@ -1,7 +1,7 @@
 package Lingua::EN::PluralToSingular;
 require Exporter;
 @ISA = qw(Exporter);
-@EXPORT_OK = qw/to_singular/;
+@EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
 our $VERSION = '0.12';
@@ -170,7 +170,7 @@ sometimes
 
 ourselves
 themselves
-
+cannabis
 /);
 
 my %not_plural;
@@ -313,6 +313,23 @@ sub to_singular
         }
     }            
     return $singular;
+}
+
+sub is_plural
+{
+    my ($word) = @_;
+    my $singular = to_singular ($word);
+    my $is_plural;
+    if ($singular ne $word) {
+	$is_plural = 1;
+    }
+    elsif ($plural{$singular} && $plural{$singular} eq $singular) {
+	$is_plural = 1;
+    }
+    else {
+	$is_plural = 0;
+    }
+    return $is_plural;
 }
 
 1;

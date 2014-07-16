@@ -2,7 +2,7 @@ use warnings;
 use strict;
 use Test::More;
 
-BEGIN { use_ok('Lingua::EN::PluralToSingular', 'to_singular') };
+use Lingua::EN::PluralToSingular 'to_singular', 'is_plural';
 
 my %words = qw/ 
 bogus bogus 
@@ -65,6 +65,12 @@ TODO: {
         is ($s, $bugs{$word}, "$s == $bugs{$word}"); 
     } 
 };
+
+is (is_plural ('cannabis'), 0);
+is (is_plural ('nyanburgers'), 1);
+is (is_plural ('garfield'), 0);
+is (is_plural ('cats'), 1);
+is (is_plural ('sheep'), 1);
 
 done_testing ();
 
