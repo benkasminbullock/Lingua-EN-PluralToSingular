@@ -4,7 +4,7 @@ require Exporter;
 @EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 # Irregular plurals.
 
