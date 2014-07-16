@@ -8,3 +8,4 @@
 .*\.pod\.tmpl$
 # Script to make the list of -men words.
 ^men\.pl$
+^grecian
