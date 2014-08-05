@@ -1,10 +1,10 @@
-package Lingua::EN::PluralToSingular;
+.package Lingua::EN::PluralToSingular;
 require Exporter;
 @ISA = qw(Exporter);
 @EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 # Irregular plurals.
 
@@ -21,6 +21,7 @@ my %irregular = (qw/
     analyses analysis
     children child
     corpora corpus
+    craftsmen craftsman
     crises crisis
     criteria criterion
     curricula curriculum
@@ -32,7 +33,6 @@ my %irregular = (qw/
     lice louse
     matrices matrix
     memoranda memorandum
-    craftsmen craftsman
     men man
     mice mouse
     monies money
@@ -40,6 +40,7 @@ my %irregular = (qw/
     nuclei nucleus
     oases oasis
     pence penny
+    people person
     phenomena phenomenon
     quanta quantum
     strata stratum
