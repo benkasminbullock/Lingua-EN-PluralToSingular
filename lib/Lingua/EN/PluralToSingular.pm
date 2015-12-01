@@ -1,10 +1,10 @@
-.package Lingua::EN::PluralToSingular;
+package Lingua::EN::PluralToSingular;
 require Exporter;
 @ISA = qw(Exporter);
 @EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
-our $VERSION = '0.14';
+our $VERSION = '0.17';
 
 # Irregular plurals.
 
@@ -19,6 +19,7 @@ our $VERSION = '0.14';
 
 my %irregular = (qw/
     analyses analysis
+    brethren brother
     children child
     corpora corpus
     craftsmen craftsman
@@ -39,6 +40,7 @@ my %irregular = (qw/
     neuroses neurosis
     nuclei nucleus
     oases oasis
+    oxen ox
     pence penny
     people person
     phenomena phenomenon
@@ -88,7 +90,6 @@ my %plural = (
 # A store of words which are the same in both singular and plural.
 
 my @no_change = qw/
-                      clothes
                       deer
                       ides
                       fish
@@ -109,12 +110,12 @@ my @no_change = qw/
 # http://virtuallinguist.typepad.com/the_virtual_linguist/2009/10/singular-nouns-ending-in-s.html
 
 my @not_plural = (qw/
-    Charles
-    Texas
+Aries
+Charles
+Gonzales 
 Hades 
 Hercules 
 Hermes 
-Gonzales 
 Holmes 
 Hughes 
 Ives 
@@ -125,53 +126,54 @@ Mercedes
 Naples 
 Oates 
 Raines 
-
-    dias
-    iris
-    molasses
-    this
-    yes
-    chaos
-    lens
-    corps
-    mews
-    news
-
-    athletics
-    mathematics
-    physics
-    metaphysics
-
-
-    bogus
-    bus
-    cactus
-    citrus
-    corpus
-    hippopotamus
-    homunculus
-    minus
-    narcissus
-    octopus
-    papyrus
-    platypus
-    plus
-    pus
-    stylus
-    various
-    previous
-    devious
-    metropolis
-    miscellaneous
-    perhaps
-    thus
-    famous
-    mrs
-sometimes
-
-ourselves
-themselves
+Texas
+athletics
+bogus
+bus
+cactus
 cannabis
+caries
+chaos
+citrus
+clothes
+corps
+corpus
+devious
+dias
+facies
+famous
+hippopotamus
+homunculus
+iris
+lens
+mathematics
+metaphysics
+metropolis
+mews
+minus
+miscellaneous
+molasses
+mrs
+narcissus
+news
+octopus
+ourselves
+papyrus
+perhaps
+physics
+platypus
+plus
+previous
+pus
+rabies
+scabies
+sometimes
+stylus
+themselves
+this
+thus
+various
+yes
 /);
 
 my %not_plural;
@@ -183,14 +185,23 @@ my %not_plural;
 # References
 # http://www.scrabblefinder.com/ends-with/oe/
 
+# Also used
+
+# perl -n -e 'print if /oe$/' < /usr/share/dict/words
+
 my @oes = (qw/
-		 foes
-		 shoes
-                 hoes
-		 throes
-                 toes
-		 oboes
-             /);
+canoes
+does
+foes
+gumshoes
+hoes
+horseshoes
+oboes
+shoes
+snowshoes
+throes
+toes
+/);
 
 my %oes;
 
@@ -203,14 +214,47 @@ my %oes;
 # (most of the words are invalid, the above list was manually searched
 # for useful words).
 
+# Also get a good list using
+
+# perl -n -e 'print if /ie$/' < /usr/share/dict/words 
+
+# There are too many obscure words there though.
+
+# Also, I'm deliberately not including "Bernie" and "Bessie" since the
+# plurals are rare I think. 
+
 my @ies = (qw/
+Aussies
+Valkryies
+aunties
+bogies
+brownies
 calories
+charlies
+coolies
+coteries
+curies
+cuties
+dies
 genies
+goalies
+kilocalories
 lies
+magpies
+menagerie
 movies
 neckties
 pies
+porkpies
+prairies
+quickies
+reveries
+rookies
+sorties
+stogies
+talkies
 ties
+zombies
 /);
 
 my %ies;

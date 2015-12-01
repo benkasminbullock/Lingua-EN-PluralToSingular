@@ -1,3 +1,7 @@
+[% start_year=2011 %]
+
+=encoding UTF-8
+
 =head1 NAME
 
 Lingua::EN::PluralToSingular - change an English plural to a singular
@@ -101,8 +105,34 @@ versions of nouns:
 
 =head1 BUGS
 
+See also L</LIMITATIONS> above.
+
 This module is in development, and there are many exceptions which are
-not included yet.
+not included yet. Also my criterion for including words is basically
+my own knowledge, so a lot of words I didn't recognize in the
+dictionary haven't been entered yet.
+
+=head1 SEE ALSO
+
+=over
+
+=item Lingua::EN::Inflect
+
+L<Lingua::EN::Inflect> by Damian Conway converts English singular
+nouns to plurals, but not vice-versa.
+
+=item Lingua::EN::Inflect::Number
+
+L<Lingua::EN::Inflect::Number> is supposed to do the same thing as
+this module. However, as of the time of writing (version 1.12) it's
+actually based on the third-person verb handling of
+Lingua::EN::Inflect, in other words it takes a verb in the "he says"
+form and converts it into "say". Thus you get bugs like
+L<https://rt.cpan.org/Public/Bug/Display.html?id=64564> where the
+reporter demonstrates that 'to_S incorrectly renders the singular of
+"statuses" as "statuse."'
+
+=back
 
 =head1 ACKNOWLEDGEMENTS
 
