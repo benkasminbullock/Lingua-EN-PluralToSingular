@@ -1,9 +1,9 @@
 package Lingua::EN::PluralToSingular;
-require Exporter;
-@ISA = qw(Exporter);
-@EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
+require Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw/to_singular is_plural/;
 our $VERSION = '0.17';
 
 # Irregular plurals.
@@ -294,22 +294,22 @@ sub to_singular
         }
         elsif ($word =~ /s$/) {
             # The word ends in "s".
-	    if ($word =~ /'s$/) {
-		# report's, etc.
-		;
-	    }
-	    elsif (length ($word) <= 2) {
-		# is, as, letter s, etc.
-		;
-	    }
-	    elsif ($word =~ /ss$/) {
-		# useless, etc.
-		;
-	    }
-	    elsif ($word =~ /sis$/) {
-		# basis, dialysis etc.
-		;
-	    }
+            if ($word =~ /'s$/) {
+            # report's, etc.
+            ;
+            }
+            elsif (length ($word) <= 2) {
+            # is, as, letter s, etc.
+            ;
+            }
+            elsif ($word =~ /ss$/) {
+            # useless, etc.
+            ;
+            }
+            elsif ($word =~ /sis$/) {
+            # basis, dialysis etc.
+            ;
+            }
             elsif ($word =~ /ies$/) {
                 # The word ends in "ies".
                 if ($ies{$word}) {
@@ -334,16 +334,16 @@ sub to_singular
             }
             elsif ($word =~ /xes$/) {
                 # The word ends in "xes".
-		$singular =~ s/xes$/x/;
+		        $singular =~ s/xes$/x/;
             }
-	    elsif ($word =~ /ses$/) {
-		if ($ses{$word}) {
-		    $singular =~ s/ses$/se/;
-		}
-		else {
-		    $singular =~ s/ses$/s/;
-		}
-	    }
+            elsif ($word =~ /ses$/) {
+                if ($ses{$word}) {
+                    $singular =~ s/ses$/se/;
+                }
+                else {
+                    $singular =~ s/ses$/s/;
+                }
+	        }
             elsif ($word =~ $es_re) {
                 # Sandwiches -> sandwich
                 # Dishes -> dish
@@ -366,16 +366,15 @@ sub is_plural
     my $singular = to_singular ($word);
     my $is_plural;
     if ($singular ne $word) {
-	$is_plural = 1;
+	    $is_plural = 1;
     }
     elsif ($plural{$singular} && $plural{$singular} eq $singular) {
-	$is_plural = 1;
+	    $is_plural = 1;
     }
     else {
-	$is_plural = 0;
+	    $is_plural = 0;
     }
     return $is_plural;
 }
 
 1;
-
