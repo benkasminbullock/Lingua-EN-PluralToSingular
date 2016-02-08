@@ -1,9 +1,9 @@
 package Lingua::EN::PluralToSingular;
-require Exporter;
-@ISA = qw(Exporter);
-@EXPORT_OK = qw/to_singular is_plural/;
 use warnings;
 use strict;
+require Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw/to_singular is_plural/;
 our $VERSION = '0.17';
 
 # Irregular plurals.
@@ -271,12 +271,98 @@ tenses
 
 my %ses;
 @ses{@ses} = (1) x @ses;
-
 # A regular expression which matches the end of words like "dishes"
 # and "sandwiches". $1 is a capture which contains the part of the
 # word which should be kept in a substitution.
 
 my $es_re = qr/([^aeiou]s|ch|sh)es$/;
+
+# Plurals ending -i, singular is either -us, -o or something else
+# See https://en.wiktionary.org/wiki/Category:English_irregular_plurals_ending_in_%22-i%22
+
+# -i to -us
+my @i_to_us = (qw/
+abaci
+abaculi
+acanthi
+acini
+alumni
+anthocauli
+bacilli
+baetuli
+cacti
+calculi
+calli
+catheti
+emboli
+emeriti
+esophagi
+foci
+foeti
+fumuli
+fungi
+gonococci
+hippopotami
+homunculi
+incubi
+loci
+macrofungi
+macronuclei
+naevi
+nuclei
+obeli
+octopi
+oeconomi
+oesophagi
+panni
+periœci
+phocomeli
+phoeti
+platypi
+polypi
+precunei
+radii
+rhombi
+sarcophagi
+solidi
+stimuli
+succubi
+syllabi
+thesauri
+thrombi
+tori
+trophi
+uteri
+viri
+virii
+xiphopagi
+zygomatici
+/);
+
+my %i_to_us;
+@i_to_us{@i_to_us} = (1) x @i_to_us;
+
+# -i to -o
+my @i_to_o = (qw/
+    alveoli
+    ghetti
+    manifesti
+    ostinati
+    pianissimi
+    scenarii
+    stiletti
+    torsi
+/);
+
+my %i_to_o;
+@i_to_o{@i_to_o} = (1) x @i_to_o;
+
+# -i to something else
+my %i_to_other = (
+    improvisatori => 'improvisatore',
+    rhinoceri => 'rhinoceros',
+    scaloppini => 'scaloppine'
+);
 
 # See documentation below.
 
@@ -294,22 +380,22 @@ sub to_singular
         }
         elsif ($word =~ /s$/) {
             # The word ends in "s".
-	    if ($word =~ /'s$/) {
-		# report's, etc.
-		;
-	    }
-	    elsif (length ($word) <= 2) {
-		# is, as, letter s, etc.
-		;
-	    }
-	    elsif ($word =~ /ss$/) {
-		# useless, etc.
-		;
-	    }
-	    elsif ($word =~ /sis$/) {
-		# basis, dialysis etc.
-		;
-	    }
+            if ($word =~ /'s$/) {
+            # report's, etc.
+            ;
+            }
+            elsif (length ($word) <= 2) {
+            # is, as, letter s, etc.
+            ;
+            }
+            elsif ($word =~ /ss$/) {
+            # useless, etc.
+            ;
+            }
+            elsif ($word =~ /sis$/) {
+            # basis, dialysis etc.
+            ;
+            }
             elsif ($word =~ /ies$/) {
                 # The word ends in "ies".
                 if ($ies{$word}) {
@@ -334,16 +420,16 @@ sub to_singular
             }
             elsif ($word =~ /xes$/) {
                 # The word ends in "xes".
-		$singular =~ s/xes$/x/;
+		        $singular =~ s/xes$/x/;
             }
-	    elsif ($word =~ /ses$/) {
-		if ($ses{$word}) {
-		    $singular =~ s/ses$/se/;
-		}
-		else {
-		    $singular =~ s/ses$/s/;
-		}
-	    }
+            elsif ($word =~ /ses$/) {
+                if ($ses{$word}) {
+                    $singular =~ s/ses$/se/;
+                }
+                else {
+                    $singular =~ s/ses$/s/;
+                }
+	        }
             elsif ($word =~ $es_re) {
                 # Sandwiches -> sandwich
                 # Dishes -> dish
@@ -356,7 +442,19 @@ sub to_singular
                 $singular =~ s/s$//;
             }
         }
-    }            
+        elsif ($word =~ /i$/) {
+            if ($i_to_us{$word}) {
+                $singular =~ s/i$/us/;
+            }
+            elsif ($i_to_o{$word}) {
+                $singular =~ s/i$/o/;
+            }
+            if ($i_to_other{$word}) {
+                $singular = $i_to_other{$word};
+            }
+        }
+
+    }
     return $singular;
 }
 
@@ -366,16 +464,15 @@ sub is_plural
     my $singular = to_singular ($word);
     my $is_plural;
     if ($singular ne $word) {
-	$is_plural = 1;
+	    $is_plural = 1;
     }
     elsif ($plural{$singular} && $plural{$singular} eq $singular) {
-	$is_plural = 1;
+	    $is_plural = 1;
     }
     else {
-	$is_plural = 0;
+	    $is_plural = 0;
     }
     return $is_plural;
 }
 
 1;
-

@@ -41,7 +41,10 @@ mrs mrs
 canvases  canvas
 geniuses  genius
 viruses  virus
-/; 
+abaci abacus
+ghetti ghetto
+rhinoceri rhinoceros
+/;
 
 for my $word (sort keys %words) { 
     my $s = to_singular ($word); 
@@ -71,6 +74,10 @@ is (is_plural ('nyanburgers'), 1);
 is (is_plural ('garfield'), 0);
 is (is_plural ('cats'), 1);
 is (is_plural ('sheep'), 1);
+is (is_plural ('syllabi'), 1);
+is (is_plural ('notaniplurali'), 0);
+is (is_plural ('alveoli'), 1);
+is (is_plural ('improvisatori'), 1);
 
 done_testing ();
 
