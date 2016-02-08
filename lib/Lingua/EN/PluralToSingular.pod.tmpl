@@ -8,22 +8,13 @@ Lingua::EN::PluralToSingular - change an English plural to a singular
 
 =head1 SYNOPSIS
 
-    use Lingua::EN::PluralToSingular 'to_singular';
-
-    print to_singular ('knives');
-    # "knife"
-
-    use Lingua::EN::PluralToSingular 'is_plural';
-
-    # Returns 1
-    is_plural ('sheep');
-    # Returns 0
-    is_plural ('dog');
-    # Returns 1
-    is_plural ('dogs');
-    # Returns 0
-    is_plural ('cannabis');
+[% INCLUDE "examples/synopsis.pl" | xtidy %]
     
+=head1 VERSION
+
+This documents version [% version %] of Lingua::EN::PluralToSingular
+corresponding to git commit [% commit.commit %] released on [%
+commit.date %].
 
 =head1 DESCRIPTION
 
@@ -137,5 +128,7 @@ reporter demonstrates that 'to_S incorrectly renders the singular of
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to Xan Charbonnet and H2CHANG for various additions and fixes.
+Lisa Hare contributed support for plurals ending in i as part of the
+2016 Pull Request Challenge.
 
 [% INCLUDE "author" %]
