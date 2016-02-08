@@ -4,3 +4,6 @@ Makefile
 *.tar.gz
 # Auto-made
 README
+Lingua-EN-PluralToSingular-*
+lib/Lingua/EN/PluralToSingular.pod
+MANIFEST
