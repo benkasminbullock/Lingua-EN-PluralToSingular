@@ -4,7 +4,7 @@ use strict;
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/to_singular is_plural/;
-our $VERSION = '0.18';
+our $VERSION = '0.19';
 
 # Irregular plurals.
 
@@ -174,6 +174,8 @@ this
 thus
 various
 yes
+nucleus
+synchronous
 /);
 
 my %not_plural;
@@ -267,6 +269,7 @@ my %ies;
 my @ses = (qw/
 horses
 tenses
+causes
 /);
 
 my %ses;
