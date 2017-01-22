@@ -44,6 +44,7 @@ viruses  virus
 abaci abacus
 ghetti ghetto
 rhinoceri rhinoceros
+releases release
 /;
 
 for my $word (sort keys %words) { 

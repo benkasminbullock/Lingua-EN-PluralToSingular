@@ -270,6 +270,7 @@ my @ses = (qw/
 horses
 tenses
 causes
+releases
 /);
 
 my %ses;
