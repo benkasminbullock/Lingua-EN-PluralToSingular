@@ -4,7 +4,7 @@ use strict;
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/to_singular is_plural/;
-our $VERSION = '0.20';
+our $VERSION = '0.19';
 
 # Irregular plurals.
 
@@ -379,6 +379,7 @@ my %i_to_o;
 @i_to_o{@i_to_o} = (1) x @i_to_o;
 
 # -i to something else
+
 my %i_to_other = (
     improvisatori => 'improvisatore',
     rhinoceri => 'rhinoceros',
@@ -485,13 +486,13 @@ sub is_plural
     my $singular = to_singular ($word);
     my $is_plural;
     if ($singular ne $word) {
-	    $is_plural = 1;
+	$is_plural = 1;
     }
     elsif ($plural{$singular} && $plural{$singular} eq $singular) {
-	    $is_plural = 1;
+	$is_plural = 1;
     }
     else {
-	    $is_plural = 0;
+	$is_plural = 0;
     }
     return $is_plural;
 }
