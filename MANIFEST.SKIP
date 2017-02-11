@@ -1,4 +1,4 @@
-^build\.pl$
+^(build|make-pod)\.pl$
 ^Makefile$
 ^\.git.*$
 ^blib/.*
@@ -9,3 +9,6 @@
 # Script to make the list of -men words.
 ^men\.pl$
 ^grecian
+^examples/.*-out\.txt$
+^xt/.*\.t$
+\.gitignore
