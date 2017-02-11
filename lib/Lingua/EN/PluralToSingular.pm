@@ -30,6 +30,7 @@ my %irregular = (qw/
     fungi fungus
     geese goose
     genera genus
+    gentlemen gentleman
     indices index
     lice louse
     matrices matrix
@@ -264,13 +265,29 @@ my %ies;
 @ies{@ies} = (1) x @ies;
 
 # Words which end in -se, so that we want the singular to change from
-# -ses to -se.
+# -ses to -se. This also contains verbs like "deceases", so that they
+# don't trigger spell checker errors.
 
 my @ses = (qw/
-horses
-tenses
+automates
+bases
+cases
 causes
+ceases
+closes
+cornflakes
+creases
+databases
+deceases
+flakes
+horses
+increases
+mates
+parses
+purposes
+races
 releases
+tenses
 /);
 
 my %ses;
