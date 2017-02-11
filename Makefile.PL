@@ -20,7 +20,12 @@ WriteMakefile (
             repository => $repo,
             bugtracker => "$repo/issues",
             homepage => 'http://prepan.org/module/3Yz7PYrBN8',
-        }
+        },
+	x_contributors => [
+	    'Xan Charbonnet',
+	    'H2CHANG',
+	    'Lisa Hare',
+	],
     },
     # Passes 5.6.2 at CPANTESTERS as of version 0.10.
     MIN_PERL_VERSION => '5.006001',
