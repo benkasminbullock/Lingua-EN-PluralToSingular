@@ -1,4 +1,15 @@
 [% start_year=2011 %]
+[% MACRO example(file) BLOCK %]
+[%- pl = file _ ".pl" -%]
+[%- out = file _ "-out.txt" -%]
+[% INCLUDE $pl | xtidy %]
+
+produces output
+
+[% INCLUDE $out | xtidy %]
+
+(This example is included as L<F<[% pl %]>|https://fastapi.metacpan.org/source/BKB/JSON-Parse-[% version %]/examples/[% pl %]> in the distribution.)
+[% END %]
 
 =encoding UTF-8
 
@@ -8,7 +19,7 @@ Lingua::EN::PluralToSingular - change an English plural to a singular
 
 =head1 SYNOPSIS
 
-[% INCLUDE "examples/synopsis.pl" | xtidy %]
+[% example("synopsis") %]
     
 =head1 VERSION
 
