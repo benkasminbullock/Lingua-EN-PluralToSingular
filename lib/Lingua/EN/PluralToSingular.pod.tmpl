@@ -1,5 +1,5 @@
-[% start_year=2011 %]
-[% MACRO example(file) BLOCK %]
+[%- start_year=2011 %]
+[%- MACRO example(file) BLOCK %]
 [%- pl = file _ ".pl" -%]
 [%- out = file _ "-out.txt" -%]
 [% INCLUDE $pl | xtidy %]
@@ -9,7 +9,7 @@ produces output
 [% INCLUDE $out | xtidy %]
 
 (This example is included as L<F<[% pl %]>|https://fastapi.metacpan.org/source/BKB/JSON-Parse-[% version %]/examples/[% pl %]> in the distribution.)
-[% END %]
+[%- END %]
 
 =encoding UTF-8
 
@@ -30,7 +30,8 @@ corresponding to git commit L<[% commit.commit %]|[% info.repo
 =head1 DESCRIPTION
 
 This converts words denoting a plural in the English language into
-words denoting a singular noun.
+words denoting a singular noun, and discriminates singulars and
+plurals.
 
 =head1 FUNCTIONS
 
@@ -115,6 +116,15 @@ versions of nouns:
     singular cats dogs geese
     # Prints "cat dog goose".
 
+=head1 EXPORTS
+
+Both L</is_plural> and L</to_singular> are exported on demand. An
+export tag C<:all> exports all the functions of the module:
+
+    use Lingua::EN::PluralToSingular ':all';
+
+The export tag C<:all> was added in version L</0.22>.
+
 =head1 SEE ALSO
 
 =over
@@ -142,5 +152,19 @@ reporter demonstrates that 'to_S incorrectly renders the singular of
 Thanks to Xan Charbonnet and H2CHANG for various additions and fixes.
 Lisa Hare contributed support for plurals ending in i as part of the
 2016 Pull Request Challenge.
+
+=head1 HISTORY
+
+This module was originally written to address a defect in
+L</Lingua::EN::Inflect> where it had no way to turn plurals into
+singulars.
+
+=over
+
+=item 0.22
+
+Added the C<:all> export tag.
+
+=back
 
 [% INCLUDE "author" %]

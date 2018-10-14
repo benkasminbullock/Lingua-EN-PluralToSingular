@@ -4,7 +4,10 @@ use strict;
 require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/to_singular is_plural/;
-our $VERSION = '0.21';
+our %EXPORT_TAGS = (
+    all => \@EXPORT_OK,
+);
+our $VERSION = '0.22';
 
 # Irregular plurals.
 
