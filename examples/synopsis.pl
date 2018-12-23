@@ -1,4 +1,4 @@
-#!/home/ben/software/install/bin/perl
+#!/usr/bin/perl
 use warnings;
 use strict;
 use Lingua::EN::PluralToSingular qw/to_singular is_plural/;
