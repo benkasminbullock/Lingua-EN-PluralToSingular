@@ -48,7 +48,12 @@ plural, C<to_singular> returns the word itself, so
 
     to_singular ('battlehorn');
 
-returns 'battlehorn'.
+returns 'battlehorn'. If the input consists of a string of words, like
+
+    to_singular ('battle horns');
+
+the return value is the singular of the final word in the string, with
+the other words unaffected.
 
 =head2 is_plural
 
@@ -61,6 +66,12 @@ returns 'battlehorn'.
 
 Returns 1 if the word is a valid plural, 0 if not. It also returns 1
 for ambiguous words like "sheep".
+
+If the input consists of a string of words, like
+
+    to_singular ('battle horns');
+
+the return value depends only on the final word in the string.
 
 =head1 LIMITATIONS AND CAVEATS
 

@@ -80,6 +80,9 @@ is (is_plural ('notaniplurali'), 0);
 is (is_plural ('alveoli'), 1);
 is (is_plural ('improvisatori'), 1);
 
+my $long = 'pasco english muffins';
+is (to_singular ($long), 'pasco english muffin', "Final word is shortened");
+
 done_testing ();
 
 # Local variables:
