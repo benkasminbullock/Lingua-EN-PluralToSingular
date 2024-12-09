@@ -324,6 +324,7 @@ my %ves = (qw/
     scarves scarf
     sheaves sheaf
     shelves shelf
+    bookshelves bookshelf
     wharves wharf 
     wives wife
     wolves wolf
@@ -387,11 +388,13 @@ my @not_plural = (qw/
     bogus
     bus
     cactus
+    calculus
     cannabis
     caries
     chaos
     citrus
     clothes
+    continuous
     corps
     corpus
     devious
